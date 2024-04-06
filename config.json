@@ -1,11 +1,13 @@
 {
-  "readmeUrl": "https://raw.githubusercontent.com/cveinnt/cveinnt/master/README.md",
+  "readmeUrl": "https://raw.githubusercontent.com/francisca105/francisca105/master/readme.md",
+  "about": "https://raw.githubusercontent.com/Francisca105/Francisca105/main/me.json",
   "title": "Francisca105",
   "name": "Francisca Almeida",
   "ascii": "FFFFFFFFFFFFFFFFFFFFFF  1111111        000000000     555555555555555555 \nF::::::::::::::::::::F 1::::::1      00:::::::::00   5::::::::::::::::5 \nF::::::::::::::::::::F1:::::::1    00:::::::::::::00 5::::::::::::::::5 \nFF::::::FFFFFFFFF::::F111:::::1   0:::::::000:::::::05:::::555555555555 \n  F:::::F       FFFFFF   1::::1   0::::::0   0::::::05:::::5            \n  F:::::F                1::::1   0:::::0     0:::::05:::::5            \n  F::::::FFFFFFFFFF      1::::1   0:::::0     0:::::05:::::5555555555   \n  F:::::::::::::::F      1::::l   0:::::0 000 0:::::05:::::::::::::::5  \n  F:::::::::::::::F      1::::l   0:::::0 000 0:::::0555555555555:::::5 \n  F::::::FFFFFFFFFF      1::::l   0:::::0     0:::::0            5:::::5\n  F:::::F                1::::l   0:::::0     0:::::0            5:::::5\n  F:::::F                1::::l   0::::::0   0::::::05555555     5:::::5\nFF:::::::FF           111::::::1110:::::::000:::::::05::::::55555::::::5\nF::::::::FF           1::::::::::1 00:::::::::::::00  55:::::::::::::55 \nF::::::::FF           1::::::::::1   00:::::::::00      55:::::::::55   \nFFFFFFFFFFF           111111111111     000000000          555555555       ",
   "social": {
-    "github": "https://github.com/Francisca105/",
-    "linkedin": "https://www.linkedin.com/in/francisca-105-almeida/"
+    "github": "Francisca105",
+    "linkedin": "francisca-105-almeida",
+    "youtube": "https://www.youtube.com/channel/UCm78HT3WnIvptEJw1LxSd6g"
   },  
   "email": "franciscaalmeida023@gmail.com",
   "ps1_hostname": "terminal",
@@ -13,7 +15,8 @@
   "repo": "https://github.com/Francisca105/Terminal-Portfolio",
   "resume_url": "https://raw.githubusercontent.com/Francisca105/Francisca105/main/cv.pdf",
   "donate_urls": {
-    "paypal": "https://paypal.me/Francisca105"
+    "paypal": "https://paypal.me/Francisca105",
+    "buymeacoffee": "https://buymeacoffee.com/francisca105"
   },
   "colors": {
     "light": {
@@ -26,13 +29,15 @@
       "red": "#CA2124"
     },
     "dark": {
-      "background": "#2E3440",
-      "foreground": "#E5E9F0",
-      "yellow": "#5E81AC",
-      "green": "#A3BE8C",
-      "gray": "#88C0D0",
-      "blue": "#EBCB8B",
-      "red": "#BF616A"
+      "background": "#2C001E",
+      "foreground": "#D4D4D4",
+      "yellow": "#B48EAD",
+      "green": "#4768fc",
+      "gray": "#888888",
+      "blue": "#797979",
+      "red": "#9B7B91"
     }
+    
+    
   }
 }

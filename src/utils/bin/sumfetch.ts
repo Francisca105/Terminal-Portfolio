@@ -17,7 +17,7 @@ const sumfetch = async (args: string[]): Promise<string> => {
      @@@                        @@@         -----------
         @@@                  @@@ @@          DONATE 
          @|  @@@@@@@@@@@@@@@@   @@           <u><a href="${config.donate_urls.paypal}" target="_blank">${config.donate_urls.paypal}</a></u>
-         @|                      @@          <u><a href="${config.donate_urls.patreon}" target="_blank">${config.donate_urls.patreon}</a></u>
+         @|                      @@          <u><a href="${config.donate_urls.buymeacoffee}" target="_blank">${config.donate_urls.buymeacoffee}</a></u>
 
 `;
 };

@@ -2,19 +2,48 @@
 
 import * as bin from './index';
 import config from '../../../config.json';
+import { getJsonMe } from '../api';
+
+
+let descriptions = {
+  "help": "Display help information.",
+  "repo": "Open the Github repository.",
+  "about": "Get to know me and my portfolio.",
+  "resume": "Open the latest resume.",
+  "donate": "Display donation information.",
+  "email": "Open the default mail client.",
+  "github": "Open the Github profile.",
+  "linkedin": "Open the LinkedIn profile.",
+  "youtube": "Open the Youtube channel.",
+  "echo": "Print arguments.",
+  "whoami": "Print the username.",
+  "ls": "List directories.",
+  "cd": "Change directory.",
+  "sudo": "Open a surprise.",
+  "banner": "Display the banner.",
+  "projects": "Explore my projects.",
+  "skills": "Discover my skills.",
+  "contact": "Connect with me.",
+  "education": "See my education.",
+  "certifications": "View my certifications.",
+  "readme": "Open my Github README.",
+  "sumfetch": "Display summary."
+}
 
 // Help
 export const help = async (args: string[]): Promise<string> => {
   const commands = Object.keys(bin).sort().join(', ');
   var c = '';
   for (let i = 1; i <= Object.keys(bin).sort().length; i++) {
-    if (i % 7 === 0) {
-      c += Object.keys(bin).sort()[i - 1] + '\n';
-    } else {
-      c += Object.keys(bin).sort()[i - 1] + ' ';
+    let key = Object.keys(bin).sort()[i - 1];
+    c += key;
+    if(descriptions[key]){
+      c += ` - ${descriptions[key]}`;
     }
+
+    c += '\n';
   }
-  return `Welcome! Here are all the available commands:
+  return `HELP\nBelow are all available commands:
 \n${c}\n
 [tab]: trigger completion.
 [ctrl+l]/clear: clear terminal.\n
@@ -26,6 +55,11 @@ Type 'sumfetch' to display summary.
 export const repo = async (args: string[]): Promise<string> => {
   window.open(`${config.repo}`);
   return 'Opening Github repository...';
+};
+
+export const youtube = async (args: string[]): Promise<string> => {
+  window.open(`${config.social.youtube}`);
+  return 'Opening the Youtube channel...';
 };
 
 // About
@@ -43,12 +77,18 @@ export const resume = async (args: string[]): Promise<string> => {
   return 'Opening resume...';
 };
 
+export const contact = async (args: string[]): Promise<string> => {
+  return `Contact me:
+- Email: ${config.email}
+- LinkedIn: ${config.social.linkedin}`
+}
+
 // Donate
 export const donate = async (args: string[]): Promise<string> => {
-  return `thank you for your interest. 
-here are the ways you can support my work:
-- <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.donate_urls.paypal}" target="_blank">paypal</a></u>
-- <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.donate_urls.patreon}" target="_blank">patreon</a></u>
+  return `If you find my work helpful or valuable, consider supporting me through a donation. 
+Your contribution helps me continue creating useful content and providing assistance to others.
+  - <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.donate_urls.paypal}" target="_blank">paypal</a></u>
+  - <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.donate_urls.buymeacoffee}" target="_blank">patreon</a></u>
 `;
 };
 
@@ -70,27 +110,6 @@ export const linkedin = async (args: string[]): Promise<string> => {
   return 'Opening linkedin...';
 };
 
-// Search
-export const google = async (args: string[]): Promise<string> => {
-  window.open(`https://google.com/search?q=${args.join(' ')}`);
-  return `Searching google for ${args.join(' ')}...`;
-};
-
-export const duckduckgo = async (args: string[]): Promise<string> => {
-  window.open(`https://duckduckgo.com/?q=${args.join(' ')}`);
-  return `Searching duckduckgo for ${args.join(' ')}...`;
-};
-
-export const bing = async (args: string[]): Promise<string> => {
-  window.open(`https://bing.com/search?q=${args.join(' ')}`);
-  return `Wow, really? You are using bing for ${args.join(' ')}?`;
-};
-
-export const reddit = async (args: string[]): Promise<string> => {
-  window.open(`https://www.reddit.com/search/?q=${args.join(' ')}`);
-  return `Searching reddit for ${args.join(' ')}...`;
-};
-
 // Typical linux commands
 export const echo = async (args: string[]): Promise<string> => {
   return args.join(' ');
@@ -101,36 +120,34 @@ export const whoami = async (args: string[]): Promise<string> => {
 };
 
 export const ls = async (args: string[]): Promise<string> => {
-  return `a
-bunch
-of
-fake
-directories`;
+  // Colors: #00ff00 (green), #0000ff (blue), #ffffff (white)
+  let directories = [
+    { name: 'Documents', color: '#00ff00', link: 'https://github.com/Francisca105/'},
+    { name: 'Downloads', color: '#00ff00', link: config.resume_url},
+    { name: 'Pictures', color: '#ffffff', link: 'https://www.instagram.com/francisca.105/'},
+    { name: 'Music', color: '#ffffff', link: 'https://open.spotify.com/user/21owtmjpw6zx5jmywjikjkjji?si=f10695935a0f4425'},
+    { name: 'Videos', color: '#00ff00', link: 'https://www.youtube.com/@Francisca.105'},
+  ];
+
+  let list = '';
+  directories.forEach((dir) => {
+    list += `<li><span style="color: ${dir.color};"><a href="${dir.link}" target="_blank">${dir.name}</a></span></li>\n`;
+  });
+  return `<ul>
+${list}
+</ul>
+<style>
+/* Styling for hover effect */
+span:hover {
+  background-color: #333; /* Dark background color on hover */
+}
+</style>`;
+
 };
 
 export const cd = async (args: string[]): Promise<string> => {
-  return `unfortunately, i cannot afford more directories.
-if you want to help, you can type 'donate'.`;
-};
-
-export const date = async (args: string[]): Promise<string> => {
-  return new Date().toString();
-};
-
-export const vi = async (args: string[]): Promise<string> => {
-  return `woah, you still use 'vi'? just try 'vim'.`;
-};
-
-export const vim = async (args: string[]): Promise<string> => {
-  return `'vim' is so outdated. how about 'nvim'?`;
-};
-
-export const nvim = async (args: string[]): Promise<string> => {
-  return `'nvim'? too fancy. why not 'emacs'?`;
-};
-
-export const emacs = async (args?: string[]): Promise<string> => {
-  return `you know what? just use vscode.`;
+  return `Unfortunately, there isn't enough space for more directories.
+  If you'd like to help, you can type 'donate'.`;
 };
 
 export const sudo = async (args?: string[]): Promise<string> => {
