@@ -2,8 +2,6 @@
 
 import * as bin from './index';
 import config from '../../../config.json';
-import { getJsonMe } from '../api';
-
 
 let descriptions = {
   "help": "Display help information.",
