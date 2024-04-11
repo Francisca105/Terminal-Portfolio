@@ -129,10 +129,7 @@ export const education = async (args: string[]): Promise<string> => {
       activities.map((activity) => {
         text += `    <span style="color: #00ff00;">-</span> <a href="${activity.certificate}" target="_blank">${activity.activity} (${activity.start} - ${activity.end})</a><br>`
       })
-      text += `<br>`
     }
-
-    text += `<br>`
   })
   
 

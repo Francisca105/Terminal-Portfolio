@@ -2,7 +2,7 @@ import config from '../../../config.json';
 
 const sumfetch = async (args: string[]): Promise<string> => {
     return `<div>
-  <img src="https://avatars.githubusercontent.com/u/65908870?v=4" alt="Me" style="float: left; margin-right: 10px; border-radius: 50%; width: 40%; height: 40%; margin-top: 20px;">
+  <img src="https://avatars.githubusercontent.com/u/65908870?v=4" alt="Me" style="float: left; margin-right: 10px; border-radius: 50%; width: 100%; max-width: 350px; height: auto; margin-top: 20px;">
   <span>
      sumfetch: summary display
     -----------

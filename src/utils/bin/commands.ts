@@ -130,9 +130,7 @@ export const ls = async (args: string[]): Promise<string> => {
   directories.forEach((dir) => {
     list += `<li><span style="color: ${dir.color};"><a href="${dir.link}" target="_blank">${dir.name}</a></span></li>\n`;
   });
-  return `<ul>
-${list}
-</ul>
+  return `<ul>${list}</ul>
 <style>
 /* Styling for hover effect */
 span:hover {
