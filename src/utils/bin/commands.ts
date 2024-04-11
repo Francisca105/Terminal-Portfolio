@@ -23,7 +23,6 @@ let descriptions = {
   "skills": "Discover my skills.",
   "contact": "Connect with me.",
   "education": "See my education.",
-  "certifications": "View my certifications.",
   "readme": "Open my Github README.",
   "sumfetch": "Display summary."
 }
@@ -146,11 +145,6 @@ span:hover {
 export const cd = async (args: string[]): Promise<string> => {
   return `Unfortunately, there isn't enough space for more directories.
   If you'd like to help, you can type 'donate'.`;
-};
-
-export const sudo = async (args?: string[]): Promise<string> => {
-  window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'); // ...I'm sorry
-  return `Permission denied: with little power comes... no responsibility? `;
 };
 
 // Banner

@@ -95,3 +95,55 @@ ${operating_systems}<br><br>
 <span style="color: #fe6256;">-</span> ${soft_skills.join('<br><span style="color: #fe6256;">-</span> ')}</span>
 `
 }
+
+export const education = async (args: string[]): Promise<string> => {
+  let me = await getJsonMe();
+  let education = me.education;
+  let text = "";
+  education.map((edu) => {
+    text += `<b>${edu.institution} (${edu.location})</b><br>
+    ${edu.degree} - ${edu.name}
+    ${edu.start} - ${edu.end}<br><br>`
+
+    let achievements = edu.achievements
+    if(achievements) {
+      text += `    <u>Achievements:</u><br>`
+      achievements.map((ach) => {
+        text += `    <span style="color: #00ff00;">-</span> <a href="${ach.certificate}" target="_blank">${ach.achievement} (${ach.year})</a><br>`
+      })
+      text += `<br>`
+    }
+
+    let summer_programs = edu.summer_programs
+    if(summer_programs) {
+      text += `    <u>Summer Programs:</u><br>`
+      summer_programs.map((summer) => {
+        text += `    <span style="color: #00ff00;">-</span> <a href="${summer.certificate}" target="_blank"><b>${summer.institution}</b> | ${summer.name} (${summer.year})</a><br>`
+      })
+      text += `<br>`
+    }
+
+    let activities = edu.extracurricular_activities
+    if(activities) {
+      text += `    <u>Extracurricular Activities:</u><br>`
+      activities.map((activity) => {
+        text += `    <span style="color: #00ff00;">-</span> <a href="${activity.certificate}" target="_blank">${activity.activity} (${activity.start} - ${activity.end})</a><br>`
+      })
+      text += `<br>`
+    }
+
+    text += `<br>`
+  })
+  
+
+  return text;
+}
+
+
+export const sudo = async (args?: string[]): Promise<string> => {
+  let me = await getJsonMe()
+  let links = me.links
+  window.open(links.website, '_blank');
+        
+  return `Permission denied: with little power comes... no responsibility? `;
+};
